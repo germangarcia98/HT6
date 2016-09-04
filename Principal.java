@@ -141,6 +141,12 @@ public class Principal {
                             break;
                          
                         case 5:/*Se muestra si el conjunto java es subconjunto de web*/
+                            if (DesarrolladoresW.containsAll(DesarrolladoresJ)==true){
+                                System.out.println("El conjunto java SI es subconjunto del conjunto Web");
+                            }
+                            else{
+                                System.out.println("El conjunto java NO es subconjunto del conjunto Web");
+                            }
                             
                             break;
                         
