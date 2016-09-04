@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
  */
 
 /**
- *
+ * @author German Garcia
  * @author Luis Nájera
  */
 public class Principal {
