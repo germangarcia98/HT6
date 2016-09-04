@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
  */
 
 /**
- * @author German Garcia
+ *
  * @author Luis Nájera
  */
 public class Principal {
@@ -37,28 +37,49 @@ public class Principal {
                     
                     break;
                 case 2:
-                    System.out.println("");
+                    Scanner dc = new Scanner(System.in);
+                    String entrada;
+                    Scanner lc = new Scanner(System.in);
+                    String entradaNombre;
                     
-                    switch(DatosDesarrollador()){
-                        case 1:
-                            DesarrolladoresJ.add(sc.next());
-                            break;
-                        case 2:
-                            DesarrolladoresW.add(sc.next());
-                            break;
-                        case 3:
-                            DesarrolladoresC.add(sc.next());
-                            break;
+                    System.out.println("");
+                    System.out.println("Seleccione la opción de desarrollador que desea seguido de su nombre: ");
+                    System.out.println("1. Desarrollador Java");
+                    System.out.println("2. Desarrollador web");
+                    System.out.println("3. Desarrollador de celulares ");
+                    System.out.println("Ingrese todo numero seguido de una coma");
+                    System.out.println("Ej. 1,2,3....");
+                    entrada = dc.nextLine();
+     
+                    StringTokenizer token = new StringTokenizer(entrada, ",");
+                    
+                    System.out.println("Ingrese el nombre del desarrollador: ");
+                    entradaNombre = dc.nextLine();
+                    
+                    while (token.hasMoreTokens()){
+                        int dato = Integer.parseInt(token.nextToken());
                         
+                        if (dato==1){
+                            DesarrolladoresJ.add(entradaNombre);
+                        }
+                        if (dato==2){
+                            DesarrolladoresW.add(entradaNombre);
+                        }
+                        if (dato==3){
+                            DesarrolladoresC.add(entradaNombre);
+                        }
                     }
                     break;
+                    
+                    
+                    
                 case 3: 
                     Iterator Javaitr = DesarrolladoresJ.iterator();
                     Iterator Webitr = DesarrolladoresW.iterator();
                     Iterator Celitr = DesarrolladoresC.iterator();
                     switch(Operaciones()){
                         
-                        case 1:
+                        case 1: /*TODAVIA NO FUNCIONA BIEN*/
                             System.out.print("\n");
                             System.out.print("Desarrolladores con experiencia Java, Web y Celular:");
                             System.out.print("\n");
@@ -94,18 +115,25 @@ public class Principal {
                             System.out.print("\n");
                             System.out.print("Desarrolladores con experiencia Web y celular");
                             System.out.print("\n");
+                            DesarrolladoresW.addAll(DesarrolladoresC);
+                            System.out.print(DesarrolladoresW);
+                            break;
+                        
+                        case 4:
+                            System.out.print("\n");
+                            System.out.print("Desarrolladores con experiencia Web: \n");
                             while(Webitr.hasNext()) {
                                 Object element = Webitr.next();
                                 System.out.print(element + ",");
                             } 
+                            System.out.print("\n");
+                            System.out.print("Desarrolladores con experiencia celular: \n");
                             while(Celitr.hasNext()) {
                                 Object element = Celitr.next();
                                 System.out.print(element + ",");
-                            }
+                            } 
                             System.out.print("\n");
-                            break;
-                        
-                        case 4:
+                            
                             
                             break;
                          
@@ -114,10 +142,70 @@ public class Principal {
                             break;
                         
                         case 6:
+                            int java;
+                            int web;
+                            int cel;
+                            
+                            java = DesarrolladoresJ.size();
+                            web = DesarrolladoresJ.size();
+                            cel = DesarrolladoresJ.size();
+                            
+                            if ((java>web) && (java>cel)){
+                                System.out.print("El conjunto Java posee mayor cantidad de desarrolladores, los cuales son: \n");
+                                while(Javaitr.hasNext()) {
+                                    Object element = Javaitr.next();
+                                    System.out.print(element + ",");
+                                }
+                            }
+                               
+                            if ((web>java) && (web>cel)){
+                                System.out.print("El conjunto Java posee mayor cantidad de desarrolladores, los cuales son: \n");
+                                while(Webitr.hasNext()) {
+                                    Object element = Webitr.next();
+                                    System.out.print(element + ",");
+                                } 
+                            }
+                                
+                                
+                            if ((cel>java) && (cel>web)){
+                                System.out.print("El conjunto Celulares posee mayor cantidad de desarrolladores, los cuales son: \n");
+                                while(Celitr.hasNext()) {
+                                Object element = Celitr.next();
+                                System.out.print(element + ",");
+                                } 
+                            }
                             
                             break;
                             
                         case 7:
+                            java = DesarrolladoresJ.size();
+                            web = DesarrolladoresJ.size();
+                            cel = DesarrolladoresJ.size();
+                            
+                            if ((java>web) && (java>cel)){
+                                System.out.print("El conjunto Java posee mayor cantidad de desarrolladores, los cuales son: \n");
+                                while(Javaitr.hasNext()) {
+                                    Object element = Javaitr.next();
+                                    System.out.print(element + "\n");
+                                }
+                            }
+                               
+                            if ((web>java) && (web>cel)){
+                                System.out.print("El conjunto Java posee mayor cantidad de desarrolladores, los cuales son: \n");
+                                while(Webitr.hasNext()) {
+                                    Object element = Webitr.next();
+                                    System.out.print(element + "\n");
+                                } 
+                            }
+                                
+                                
+                            if ((cel>java) && (cel>web)){
+                                System.out.print("El conjunto Celulares posee mayor cantidad de desarrolladores, los cuales son: \n");
+                                while(Celitr.hasNext()) {
+                                Object element = Celitr.next();
+                                System.out.print(element + "\n");
+                                } 
+                            }
                             
                             break;
                     }
@@ -166,19 +254,6 @@ public class Principal {
     }
     
     
-    public static int DatosDesarrollador() {
-        Scanner sc = new Scanner(System.in);
-        int entrada;
-        
-        System.out.println("");
-        System.out.println("Seleccione la opción de desarrollador que desea seguido de su nombre: ");
-        System.out.println("1. Desarrollador Java");
-        System.out.println("2. Desarrollador web");
-        System.out.println("3. Desarrollador de celulares ");
-        entrada = sc.nextInt();
-        
-        return entrada;
-    }
     
     public static int Operaciones() {
         Scanner sc = new Scanner(System.in);
