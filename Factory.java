@@ -11,7 +11,7 @@ import java.util.Set;
  */
 
 /**
- *
+ * @author German Garcia
  * @author Luis Nájera
  */
 public class Factory {
