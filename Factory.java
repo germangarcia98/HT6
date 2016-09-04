@@ -1,5 +1,4 @@
 
-import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -11,7 +10,7 @@ import java.util.Set;
  */
 
 /**
- * @author German Garcia
+ *
  * @author Luis Nájera
  */
 public class Factory {
