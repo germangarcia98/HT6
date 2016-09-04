@@ -3,11 +3,23 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+
+/**
+ * Clase para ingresar datos y mostrar resultados.
+ * @author German Garcia 15008.
+ * @author Luis Nájera 15581.
+ * version 02.09.16
+ */
+
+
 public class Principal {
     static boolean primerDato = false;
     
+    /**
+     * Método main, utilizado para ingreso y salida de datos.
+     * @param args 
+     */
     public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
         Set DesarrolladoresJ = null; 
         Set DesarrolladoresW= null;
         Set DesarrolladoresC = null;
@@ -23,7 +35,7 @@ public class Principal {
             opcion = menu(); 
             switch (opcion)
             {
-                case 1: 
+                case 1: /*Inicializa la opción SET elegida por el usuario.*/
                     int respuesta = SeleccionSet();
                     DesarrolladoresJ = datos.Factory(respuesta);
                     DesarrolladoresW = datos.Factory(respuesta);
@@ -32,7 +44,8 @@ public class Principal {
                     Auxiliar2 = datos.Factory(respuesta);
                     Auxiliar3 = datos.Factory(respuesta);
                     break;
-                case 2:
+                    
+                case 2:/*Muestra el menu de desarrolladores al usuario*/
                     Scanner dc = new Scanner(System.in);
                     String entrada;
                     String entradaNombre;
@@ -44,25 +57,25 @@ public class Principal {
                     System.out.println("3. Desarrollador de celulares ");
                     System.out.println("Para ingresar más de un dato coloque una coma entre cada número");
                     System.out.println("Ej. 1,2,3....");
-                    entrada = dc.nextLine();
+                    entrada = dc.nextLine(); /*'Entrada' guarda la opción elegida por el usuario*/
      
-                    StringTokenizer token = new StringTokenizer(entrada, ",");
+                    StringTokenizer token = new StringTokenizer(entrada, ",");  /*Se utiliza StringTokenizer para separar la respuesta*/
                     
                     System.out.println("Ingrese el nombre del desarrollador: ");
-                    entradaNombre = dc.nextLine();
+                    entradaNombre = dc.nextLine(); /*'EntradaNombre' guarda el nombre del desarrollador.*/
                     
                     while (token.hasMoreTokens()){
                         int dato = Integer.parseInt(token.nextToken());
                         
-                        if (dato==1){
+                        if (dato==1){   /*Si el dato ingresado es igual a 1, el nombre se guarda como desarrollador Java*/
                             DesarrolladoresJ.add(entradaNombre);
                             Auxiliar1.add(entradaNombre);
                         }
-                        if (dato==2){
+                        if (dato==2){   /*Si el dato ingresado es igual a 2, el nombre se guarda como desarrollador Web*/
                             DesarrolladoresW.add(entradaNombre);
                             Auxiliar2.add(entradaNombre);
                         }
-                        if (dato==3){
+                        if (dato==3){   /*Si el dato ingresado es igual a 3, el nombre se guarda como desarrollador Celular*/
                             DesarrolladoresC.add(entradaNombre);
                             Auxiliar3.add(entradaNombre);
                         }
@@ -71,13 +84,14 @@ public class Principal {
                     
                     
                     
-                case 3: 
+                case 3: /*Se muestra el resultado de la opción seleccionada por el usuario en el menu de Operaciones*/
                     Iterator Javaitr = DesarrolladoresJ.iterator();
                     Iterator Webitr = DesarrolladoresW.iterator();
                     Iterator Celitr = DesarrolladoresC.iterator();
+                    
                     switch(Operaciones()){
                         
-                        case 1:
+                        case 1:/*Se muestra la intersección de desarrolladores Jeva,Web y Celular*/
                             System.out.print("\n");
                             System.out.print("Desarrolladores con experiencia Java, Web y celular");
                             System.out.print("\n");
@@ -88,7 +102,7 @@ public class Principal {
                             break;
                             
                             
-                        case 2:
+                        case 2:/*Se muestra el conjunto de desarrolladores java.*/
                             System.out.print("\n");
                             System.out.print("Desarrolladores con experiencia Java pero sin experiencia Web:");
                             System.out.print("\n");
@@ -100,7 +114,7 @@ public class Principal {
                             break;
                             
                             
-                        case 3:
+                        case 3:/*Se muestra la intersección entre los desarrolladores Web y Celular*/
                             System.out.print("\n");
                             System.out.print("Desarrolladores con experiencia Web y celular");
                             System.out.print("\n");
@@ -108,7 +122,7 @@ public class Principal {
                             System.out.print(Auxiliar2);
                             break;
                         
-                        case 4:
+                        case 4:/*Se muestra la union entre los desarrolladores Web y Celular*/
                             System.out.print("\n");
                             System.out.print("Desarrolladores con experiencia Web: \n");
                             while(Webitr.hasNext()) {
@@ -126,11 +140,11 @@ public class Principal {
                             
                             break;
                          
-                        case 5:
+                        case 5:/*Se muestra si el conjunto java es subconjunto de web*/
                             
                             break;
                         
-                        case 6:
+                        case 6:/*Se muestra el conjunto con mayor cantidad de desarrolladores*/
                             int java=0;
                             int web=0;
                             int cel=0;
@@ -191,7 +205,7 @@ public class Principal {
                             }
                             break;
                             
-                        case 7:
+                        case 7:/*Se muestra el conjunto con mayor cantidad de desarrolladores en orden ascendente*/
                             int java2=0;
                             int web2=0;
                             int cel2=0;
@@ -259,7 +273,10 @@ public class Principal {
     }
     
         
-    
+    /**
+     * Método menu, utilizado para mostrar el menu principal al usuario.
+     * @return devuelve la opción seleccionada por el usuario.
+     */
     public static int menu() {
         
         
@@ -283,7 +300,10 @@ public class Principal {
         return respuesta;
     }
     
-    
+    /**
+     * Método SeleccionSet, utilizado para mostrar el menu con opciones Set a elegir.
+     * @return devuelve la opción seleccionada por el usuario.
+     */
     public static int SeleccionSet() {
         Scanner sc = new Scanner(System.in);
         int respuesta;
@@ -297,7 +317,10 @@ public class Principal {
     }
     
     
-    
+    /**
+     * Método Operaciones, utilizado para mostrar el menu con opciones de respuestas al usuario.
+     * @return devuelve la opción elegida por el usuario.
+     */
     public static int Operaciones() {
         Scanner sc = new Scanner(System.in);
         int entrada;

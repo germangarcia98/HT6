@@ -3,15 +3,11 @@ import java.util.TreeSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author Luis Nájera
+ * Clase factory para generar HashSet, TreeSet o LikedHashSet.
+ * @author German Garcia 15008.
+ * @author Luis Nájera 15581.
+ * version 02.09.16
  */
 public class Factory {
 
