@@ -1,7 +1,9 @@
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 
 /**
@@ -26,6 +28,7 @@ public class Principal {
         Set Auxiliar1 = null;
         Set Auxiliar2 = null;
         Set Auxiliar3 = null;
+        SortedSet<String> tree = new TreeSet<>();
         Factory datos = new Factory();
         int opcion=0;
         
@@ -158,6 +161,7 @@ public class Principal {
                             Iterator Webitr2 = DesarrolladoresW.iterator();
                             Iterator Celitr2 = DesarrolladoresC.iterator();
                             
+                            
                             while(Javaitr.hasNext()) {
                                 Object element = Javaitr.next();
                                 java=java+1;
@@ -175,6 +179,7 @@ public class Principal {
                                 System.out.print("\n");
                                 System.out.print("El conjuto Java contiene el mayor número de desarrolladores, los cuales son :");
                                 System.out.print("\n");
+                                tree.addAll(DesarrolladoresJ);
                                 while(Javaitr2.hasNext()) {
                                     Object element2 = Javaitr2.next();
                                     System.out.print(element2 + ",");
@@ -219,6 +224,7 @@ public class Principal {
                             Iterator Webitr3 = DesarrolladoresW.iterator();
                             Iterator Celitr3 = DesarrolladoresC.iterator();
                             
+                            
                             while(Javaitr.hasNext()) {
                                 Object element = Javaitr.next();
                                 java2=java2+1;
@@ -236,8 +242,10 @@ public class Principal {
                                 System.out.print("\n");
                                 System.out.print("El conjuto Java contiene el mayor número de desarrolladores, los cuales son :");
                                 System.out.print("\n");
-                                while(Javaitr3.hasNext()) {
-                                    Object element3 = Javaitr3.next();
+                                tree.addAll(DesarrolladoresJ);
+                                Iterator Ordenado = tree.iterator();
+                                while(Ordenado.hasNext()) {
+                                    Object element3 = Ordenado.next();
                                     System.out.print(element3 + "\n");
                                 } 
                                 System.out.print("\n"); 
@@ -247,8 +255,10 @@ public class Principal {
                                 System.out.print("\n");
                                 System.out.print("El conjuto Web contiene el mayor número de desarrolladores, los cuales son :");
                                 System.out.print("\n");
-                                while(Webitr3.hasNext()) {
-                                    Object element3 = Webitr3.next();
+                                tree.addAll(DesarrolladoresW);
+                                Iterator Ordenado = tree.iterator();
+                                while(Ordenado.hasNext()) {
+                                    Object element3 = Ordenado.next();
                                     System.out.print(element3 + "\n");
                                 }
                                 System.out.print("\n"); 
@@ -258,8 +268,10 @@ public class Principal {
                                 System.out.print("\n");
                                 System.out.print("El conjuto Celular contiene el mayor número de desarrolladores, los cuales son :");
                                 System.out.print("\n");
-                                while(Celitr3.hasNext()) {
-                                    Object element3 = Celitr3.next();
+                                tree.addAll(DesarrolladoresC);
+                                Iterator Ordenado = tree.iterator();
+                                while(Ordenado.hasNext()) {
+                                    Object element3 = Ordenado.next();
                                     System.out.print(element3 + "\n");
                                 } 
                                 System.out.print("\n"); 
